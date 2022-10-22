@@ -8,7 +8,7 @@ lineParser = apache_log_parser.make_parser("%h %l %u %t \"%r\" %>s %b \"%{Refere
 def reader(filename):
     totalLines = 0
     errorLogLines = 0
-    with open(filename) as f, open('output1.csv', 'w') as csvfile:
+    with open(filename) as f, open('output.csv', 'w') as csvfile:
         writer = csv.writer(csvfile)
         lines = f.readlines()
         lineData = {}
@@ -30,4 +30,4 @@ def reader(filename):
             print(errorLogLines)
 
 if __name__ == '__main__':
-    reader('access1.log')
+    reader('access.log')
