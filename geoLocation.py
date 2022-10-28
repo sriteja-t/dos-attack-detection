@@ -9,7 +9,7 @@ def getLocation():
     ips = df['remote_host']
     with geoip2.database.Reader('GeoLite2-Country.mmdb') as geo:
          with open('output.csv', 'r') as csvin:
-            with open('final.csv', 'w') as csvout:
+            with open('final.csv', 'w', newline='') as csvout:
                 writer = csv.writer(csvout)
                 reader = csv.reader(csvin)
                 count = False
@@ -23,7 +23,8 @@ def getLocation():
                         writer.writerow([response.country.name])
                         # print()
                     except Exception as e:
+                        writer.writerow([e])
                         print(e)
 
-print(getLocation())
+# print(getLocation())
 # getLocation()

@@ -1,15 +1,5 @@
 import pandas as pd
-import csv
 
-def mergedf():
-    csv1 = pd.read_csv('nice.csv')
-    csv2 = pd.read_csv('final.csv')
-    # output = csv1.append(csv2)
-    # output.to_csv('ush.csv', index=False)
-    # print(output[['Country']])
-    # print(output.head())
-    # print(csv1.info())
-    # print(csv2.info())
 
 def dropdf():
     df = pd.read_csv('output.csv')
@@ -17,5 +7,16 @@ def dropdf():
     drdf.to_csv('nice.csv', index=False)
     print(drdf)
 
+def mergedf():
+    csv1 = pd.read_csv('nice.csv')
+    csv2 = pd.read_csv('final.csv')
+    csv1['Country'] = csv2
+    # output = csv1.append(csv2)
+    print(csv1[['Country']])
+    csv1.to_csv('ush.csv', index=False)
+    # print(output[['Country']])
+    # print(output.head())
+    # print(csv1.info())
+    # print(csv2.info())
+# print(dropdf())
 # print(mergedf())
-print(dropdf())
