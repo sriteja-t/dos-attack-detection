@@ -32,8 +32,8 @@ def reader(filename):
 
 # LineData is the parsed data, totalLines is the number of parsed lines and errorLogLines are failed to parse log lines.
             print(lineData)
-            print("Total number of lines parsed: " + str(totalLines))
-            print("Total number of lines failed: "+ str(errorLogLines))
+    print("-----Total number of lines parsed: " + str(totalLines))
+    print("-----Total number of lines failed: "+ str(errorLogLines))
 
 if __name__ == '__main__':
     reader('access.log')

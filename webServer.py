@@ -3,7 +3,7 @@ import time
 app = Flask(__name__)
 
 @app.route('/')
-def hi():
+def home():
     return """<a href='/home'>/home</a>
               <br>
               <a href='/name'>/name</a>
@@ -16,11 +16,11 @@ def index():
     return "Welcome, The server is up and running!"
 
 @app.route('/name')
-def jsony():
+def name():
     return jsonify(name='tst')
 
 @app.route('/age')
-def test():
+def age():
     return jsonify(age='19')
 
 if __name__ == '__main__':

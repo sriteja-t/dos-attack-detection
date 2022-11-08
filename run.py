@@ -1,3 +1,4 @@
+# Script to run all the functions at once in sequential order
 import parser
 import geoLocation
 import merge

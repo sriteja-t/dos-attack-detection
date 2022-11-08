@@ -19,18 +19,23 @@ def getLocation():
                 writer = csv.writer(csvout)
                 reader = csv.reader(csvin)
                 count = False
-
+                locations = 0
+                errors = 0
 # For every ip in the dataframe search in the database for the country using the geoip2.database module            
                 for ip in ips:
                     try:
                         response = geo.country(ip)
-                        print(response.country.name)
+                        # print(response.country.name)
                         if count == False:
                             writer.writerow(["Country"])
                             count = True
                         writer.writerow([response.country.name])
-                        
+                        locations += 1
 # Catch exception if there exist no entry for the IP           
                     except Exception as e:
-                        writer.writerow([e])
                         print(e)
+                        writer.writerow([e])
+                        errors += 1
+                        
+            print("---------------------Number of failed IP lookups : " + str(errors))            
+            print("---------------------Number of IP lookups done : " + str(locations))
